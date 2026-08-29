@@ -1,4 +1,8 @@
-function VoteSuccess({ project, onDone }) {
+function VoteSuccess({ project }) {
+
+  const onDone = () => {
+  window.location.href = "/results";
+};
   return (
     <div className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-lg">
       <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
