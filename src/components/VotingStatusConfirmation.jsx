@@ -1,3 +1,5 @@
+import useDialogAccessibility from "../hooks/useDialogAccessibility";
+
 function VotingStatusConfirmation({
   isOpen,
   opening,
@@ -5,13 +7,15 @@ function VotingStatusConfirmation({
   onConfirm,
   loading = false,
 }) {
+  const dialogRef = useDialogAccessibility(isOpen, onCancel, !loading);
+
   if (!isOpen) {
     return null;
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 px-4 py-6 backdrop-blur-sm">
+      <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="voting-status-title" tabIndex={-1} className="surface-card w-full max-w-md rounded-3xl p-6 sm:p-7">
         {/* Icon */}
         <div
           className={`mx-auto flex h-14 w-14 items-center justify-center rounded-full ${
@@ -50,12 +54,12 @@ function VotingStatusConfirmation({
         </div>
 
         {/* Title */}
-        <h2 className="mt-5 text-center text-xl font-bold text-gray-900">
+        <h2 id="voting-status-title" className="mt-5 text-center text-2xl font-bold tracking-tight text-slate-950">
           {opening ? "Open Voting?" : "Close Voting?"}
         </h2>
 
         {/* Message */}
-        <p className="mt-3 text-center leading-relaxed text-gray-500">
+        <p className="mt-3 text-center leading-relaxed text-slate-500">
           {opening
             ? "Are you sure you want to open the voting? Students will be able to submit their votes."
             : "Are you sure you want to close the voting? Students will no longer be able to submit votes."}
@@ -67,7 +71,7 @@ function VotingStatusConfirmation({
             type="button"
             onClick={onCancel}
             disabled={loading}
-            className="flex-1 rounded-lg border border-gray-300 bg-white px-4 py-3 font-semibold text-gray-700 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex-1 rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
           >
             Cancel
           </button>
@@ -76,7 +80,7 @@ function VotingStatusConfirmation({
             type="button"
             onClick={onConfirm}
             disabled={loading}
-            className={`flex-1 rounded-lg px-4 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50 ${
+            className={`flex-1 rounded-xl px-4 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50 ${
               opening
                 ? "bg-green-600 hover:bg-green-700"
                 : "bg-red-600 hover:bg-red-700"

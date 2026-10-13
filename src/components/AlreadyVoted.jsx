@@ -1,9 +1,9 @@
 function AlreadyVoted() {
   return (
-    <div className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-lg">
-      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-yellow-100">
+    <div className="surface-card w-full max-w-lg rounded-3xl p-8 text-center sm:p-10">
+      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-50 ring-1 ring-amber-100">
         <svg
-          className="h-8 w-8 text-yellow-600"
+          className="h-8 w-8 text-amber-600"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -17,16 +17,17 @@ function AlreadyVoted() {
         </svg>
       </div>
 
-      <h1 className="mt-6 text-2xl font-bold text-gray-900">
+      <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Ballot status</p>
+      <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
         Already Voted
       </h1>
 
-      <p className="mt-2 text-gray-500">
+      <p className="mt-2 leading-6 text-slate-500">
         This student number has already been used to
         cast a vote.
       </p>
 
-      <p className="mt-4 text-sm text-gray-400">
+      <p className="mt-4 text-sm text-slate-400">
         Each student is allowed to vote only once.
       </p>
     </div>

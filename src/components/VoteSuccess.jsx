@@ -1,13 +1,12 @@
-function VoteSuccess({ project }) {
+import { useNavigate } from "react-router-dom";
 
-  const onDone = () => {
-  window.location.href = "/results";
-};
+function VoteSuccess({ project }) {
+  const navigate = useNavigate();
   return (
-    <div className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-lg">
-      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+    <div className="surface-card w-full max-w-lg rounded-3xl p-8 text-center sm:p-10">
+      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 ring-1 ring-emerald-100">
         <svg
-          className="h-8 w-8 text-green-600"
+          className="h-8 w-8 text-emerald-600"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -21,32 +20,33 @@ function VoteSuccess({ project }) {
         </svg>
       </div>
 
-      <h1 className="mt-6 text-2xl font-bold text-gray-900">
+      <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Ballot recorded</p>
+      <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
         Vote Submitted!
       </h1>
 
-      <p className="mt-2 text-gray-500">
+      <p className="mt-2 text-slate-500">
         Thank you for participating in the IoT Project Voting.
       </p>
 
-      <div className="mt-6 rounded-xl bg-gray-50 p-4">
-        <p className="text-sm text-gray-500">
+      <div className="mt-7 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+        <p className="text-sm text-slate-500">
           Your vote was recorded for
         </p>
 
-        <p className="mt-1 font-semibold text-gray-900">
+        <p className="mt-1 font-semibold text-slate-950">
           {project.title}
         </p>
 
-        <p className="mt-1 text-sm text-blue-600">
+        <p className="mt-1 text-sm font-medium text-blue-700">
           {project.group}
         </p>
       </div>
 
       <button
         type="button"
-        onClick={onDone}
-        className="mt-6 w-full rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-700"
+        onClick={() => navigate("/results")}
+        className="primary-action mt-7 w-full rounded-xl px-4 py-3.5 font-semibold text-white transition"
       >
         Done
       </button>

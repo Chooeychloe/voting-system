@@ -43,7 +43,7 @@ function StudentNumberForm({ onContinue }) {
           type="text"
           value={studentNumber}
           onChange={(e) => setStudentNumber(e.target.value)}
-          placeholder="e.g. 2024-00001"
+          placeholder="e.g. 202600001"
           className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
         />
 

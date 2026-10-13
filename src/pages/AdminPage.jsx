@@ -3,17 +3,17 @@ import AdminLogin from "../components/AdminLogin";
 import AdminDashboard from "./AdminDashboard";
 
 function AdminPage() {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [adminPassword, setAdminPassword] = useState("");
 
-  if (!authenticated) {
+  if (!adminPassword) {
     return (
       <AdminLogin
-        onLogin={() => setAuthenticated(true)}
+        onLogin={setAdminPassword}
       />
     );
   }
 
-  return <AdminDashboard />;
+  return <AdminDashboard adminPassword={adminPassword} onLogout={() => setAdminPassword("")} />;
 }
 
 export default AdminPage;

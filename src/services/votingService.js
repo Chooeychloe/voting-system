@@ -42,9 +42,17 @@ export async function getResults() {
     action: "getResults",
   });
 }
-export async function setVotingStatus(isOpen) {
+export async function verifyAdmin(password) {
+  return request({
+    action: "adminLogin",
+    password,
+  });
+}
+
+export async function setVotingStatus(isOpen, adminPassword) {
   return request({
     action: "setVotingStatus",
     isOpen,
+    adminPassword,
   });
 }
