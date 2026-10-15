@@ -43,10 +43,7 @@ function ProjectCard({ project, selected, onSelect }) {
 
       {/* Project Information */}
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <p className="text-xs font-bold uppercase tracking-wider text-blue-700">
-          {project.group}
-        </p>
-
+       
         <h3 className="mt-2 text-xl font-bold tracking-tight text-slate-950">
           {project.title}
         </h3>
