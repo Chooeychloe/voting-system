@@ -347,8 +347,6 @@ function getResults() {
       };
     });
 
-    projectResults.sort((a, b) => b.votes - a.votes);
-
     return responseWithData(true, "results", "Results retrieved.", {
       votingOpen,
       totalStudents,

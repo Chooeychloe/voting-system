@@ -135,7 +135,9 @@ function VotingResults() {
           </div>
 
           <div className="divide-y divide-gray-100">
-            {(results.projects ?? []).map((project, index) => (
+            {[...(results.projects ?? [])]
+              .sort((a, b) => b.votes - a.votes)
+              .map((project, index) => (
               <div key={project.id} className="p-5 transition-colors hover:bg-slate-50/70 sm:p-7">
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex min-w-0 items-center gap-4">
@@ -178,7 +180,7 @@ function VotingResults() {
                   />
                 </div>
               </div>
-            ))}
+              ))}
             {(results.projects ?? []).length === 0 && <p className="p-8 text-center text-gray-500">No project results are available yet.</p>}
           </div>
         </div>
